@@ -19,9 +19,10 @@
 import requests
 import sys
 import json
+from config import API_key
 
 try:
-    response = requests.get("https://rest.coincap.io/v3/assets/bitcoin?apiKey=334efe7bc9a16207bbdca36c95e4e88f0d914f8338726140c865a3683559ae0d")
+    response = requests.get(f"https://rest.coincap.io/v3/assets/bitcoin?apiKey={API_key}")
     data = response.json()
 except requests.RequestException:
     sys.exit("Request failed")
