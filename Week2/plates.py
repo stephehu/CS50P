@@ -23,18 +23,19 @@ def main():
 
 
 def is_valid(s):
+    if not (2 <= len(s) <= 6):
+        return False
     if not s[:2].isalpha():
         return False
-    if not 2 <= len(s) <= 6:
-        return False
-    if not s[-1].isdigit():
-        return False
-    for c in s:
-        if c.isdigit():
-            if c == "0":
-                return False
     if not s.isalnum():
-        return False
+        return False  
+    for i, char in enumerate(s):
+        if char.isdigit():
+            if char == '0':
+                return False  
+            if not s[i:].isdigit():
+                return False  
+            break
     return True
 
 
